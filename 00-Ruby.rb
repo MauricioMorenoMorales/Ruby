@@ -79,3 +79,41 @@ p numbers.inject(10) { |total, n| n }
 strings = %w(a bb ccc)
 
 p strings.inject(0) {|total, str| total + str.size}
+
+p '--------------Sorting--------------'
+
+numberssor = [5,8,2,9,1]
+
+p numberssor.sort
+
+stringsor= %w(bb cc aa)
+
+p stringsor.sort
+
+stringssor2 = %w(test foo bar bacon)
+
+p stringssor2.sort_by { |str| str.length}
+p stringssor2.sort_by(&:length)
+p stringssor2.sort_by { |str| -str.length }
+
+mp3 = %w(20.mp3 31.mp3 10.mp3 5.mp3 88mp3)
+
+p mp3.sort_by { |file| -file.scan(/\d+/).first.to_i}
+
+meals = {bacon: 100, chocolate: 200, cacahuate: 150}
+p meals.sort_by { |k, v| k}.to_h
+
+p '--------------Diferences between puts print and p--------------'
+
+puts 'Hello'
+puts 'There'
+
+print 'Hello'
+print ' there'
+
+p 123
+p 'Hello'
+p %w(hola estoy probando escribir con esto)
+puts %w(hola estoy probando escribir con esto)
+puts "Puts es más usado para enviar mensajes"
+p "p puede ser usado más para el desarrollo"
