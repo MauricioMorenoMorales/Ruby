@@ -117,3 +117,39 @@ p %w(hola estoy probando escribir con esto)
 puts %w(hola estoy probando escribir con esto)
 puts "Puts es más usado para enviar mensajes"
 p "p puede ser usado más para el desarrollo"
+
+p '--------------Hashes--------------'
+
+emptyhash = {}
+emptyhash = Hash.new
+
+hash = {bacon: 300,
+	name: 'Jesus castello',
+	bacon: 200,
+	"age" => 31,
+}
+
+puts hash[:bacon]
+puts hash[:name]
+puts hash[:bacon]
+p hash["age"]
+
+p hash
+p hash.keys
+
+country_codes = {
+	"ES" => "Spain",
+	"UK" => "United Kingdom",
+	"US" => "United States",
+}
+
+p country_codes["US"]
+
+counthash = Hash.new(0)
+wordshash = 'Hello there hello'.split
+
+p wordshash
+
+wordshash.each { |word| counthash[word] += 1 }
+
+p count
