@@ -1,158 +1,158 @@
-# # !7 Ways to create an array
+# !7 Ways to create an array
 
-# #a = [1,2,3,4, "a", :a]
+#a = [1,2,3,4, "a", :a]
 
-# x = 123
+x = 123
 
-# b = %w(a b c d e #{x}) # They are taken as they are
-# p b
+b = %w(a b c d e #{x}) # They are taken as they are
+p b
 
-# c = %W(a b c d e #{x}) # This has interpolation
-# p c
+c = %W(a b c d e #{x}) # This has interpolation
+p c
 
-# d = Array(2)
-# d.push(2)
-# p d
+d = Array(2)
+d.push(2)
+p d
 
-# e = Array.new(5) { rand(10) } # Puedes llenar un array on 5 espacios de numeros aleatorios
-# p e
+e = Array.new(5) { rand(10) } # Puedes llenar un array on 5 espacios de numeros aleatorios
+p e
 
-# f = (1..10).to_a
-# p f
+f = (1..10).to_a
+p f
 
-# g = %i(a b c d)
-# p g
+g = %i(a b c d)
+p g
 
-# # !Ruby loops tutorial
+# !Ruby loops tutorial
 
-# count = 1
+count = 1
 
-# p '--------------------'
-# while count <= 10
-# 	p count
-# 	count += 1
+p '--------------------'
+while count <= 10
+	p count
+	count += 1
+end
+
+p '--------------------'
+10.times { |n| p n -100}
+
+p '--------------------'
+(1..20).each {|n| p n * n}
+(1..20).each {|n| p n * n}
+
+p '--------------------'
+(1..5).step(2) {|n| p n * n}
+
+p '--------------------'
+# while array.empty?
+# 	array.pop
 # end
 
-# p '--------------------'
-# 10.times { |n| p n -100}
+# until condition
+# end
 
-# p '--------------------'
-# (1..20).each {|n| p n * n}
-# (1..20).each {|n| p n * n}
+# if / unless
 
-# p '--------------------'
-# (1..5).step(2) {|n| p n * n}
+# while / until
 
-# p '--------------------'
-# # while array.empty?
-# # 	array.pop
-# # end
+p '--------------Inject method--------------'
 
-# # until condition
-# # end
+numbers = [10,2,3,4,5]
 
-# # if / unless
+# total = 0
 
-# # while / until
+# p numbers.each {|n| total += n}
 
-# p '--------------Inject method--------------'
+# p total
 
-# numbers = [10,2,3,4,5]
+# =>> 15
 
-# # total = 0
+# numbers.inject { |total, n| p n}
+#  =>> 2 3 4 5
 
-# # p numbers.each {|n| total += n}
+p numbers.inject { |total, n| total + n}
 
-# # p total
+p numbers.inject(:+)
 
-# # =>> 15
+p numbers.inject(10) { |total, n| n }
 
-# # numbers.inject { |total, n| p n}
-# #  =>> 2 3 4 5
+strings = %w(a bb ccc)
 
-# p numbers.inject { |total, n| total + n}
+p strings.inject(0) {|total, str| total + str.size}
 
-# p numbers.inject(:+)
+p '--------------Sorting--------------'
 
-# p numbers.inject(10) { |total, n| n }
+numberssor = [5,8,2,9,1]
 
-# strings = %w(a bb ccc)
+p numberssor.sort
 
-# p strings.inject(0) {|total, str| total + str.size}
+stringsor= %w(bb cc aa)
 
-# p '--------------Sorting--------------'
+p stringsor.sort
 
-# numberssor = [5,8,2,9,1]
+stringssor2 = %w(test foo bar bacon)
 
-# p numberssor.sort
+p stringssor2.sort_by { |str| str.length}
+p stringssor2.sort_by(&:length)
+p stringssor2.sort_by { |str| -str.length }
 
-# stringsor= %w(bb cc aa)
+mp3 = %w(20.mp3 31.mp3 10.mp3 5.mp3 88mp3)
 
-# p stringsor.sort
+p mp3.sort_by { |file| -file.scan(/\d+/).first.to_i}
 
-# stringssor2 = %w(test foo bar bacon)
+meals = {bacon: 100, chocolate: 200, cacahuate: 150}
+p meals.sort_by { |k, v| k}.to_h
 
-# p stringssor2.sort_by { |str| str.length}
-# p stringssor2.sort_by(&:length)
-# p stringssor2.sort_by { |str| -str.length }
+p '--------------Diferences between puts print and p--------------'
 
-# mp3 = %w(20.mp3 31.mp3 10.mp3 5.mp3 88mp3)
+puts 'Hello'
+puts 'There'
 
-# p mp3.sort_by { |file| -file.scan(/\d+/).first.to_i}
+print 'Hello'
+print ' there'
 
-# meals = {bacon: 100, chocolate: 200, cacahuate: 150}
-# p meals.sort_by { |k, v| k}.to_h
+p 123
+p 'Hello'
+p %w(hola estoy probando escribir con esto)
+puts %w(hola estoy probando escribir con esto)
+puts "Puts es más usado para enviar mensajes"
+p "p puede ser usado más para el desarrollo"
 
-# p '--------------Diferences between puts print and p--------------'
+p '--------------Hashes--------------'
 
-# puts 'Hello'
-# puts 'There'
+emptyhash = {}
+emptyhash = Hash.new
 
-# print 'Hello'
-# print ' there'
+hash = {bacon: 300,
+	name: 'Jesus castello',
+	bacon: 200,
+	"age" => 31,
+}
 
-# p 123
-# p 'Hello'
-# p %w(hola estoy probando escribir con esto)
-# puts %w(hola estoy probando escribir con esto)
-# puts "Puts es más usado para enviar mensajes"
-# p "p puede ser usado más para el desarrollo"
+puts hash[:bacon]
+puts hash[:name]
+puts hash[:bacon]
+p hash["age"]
 
-# p '--------------Hashes--------------'
+p hash
+p hash.keys
 
-# emptyhash = {}
-# emptyhash = Hash.new
+country_codes = {
+	"ES" => "Spain",
+	"UK" => "United Kingdom",
+	"US" => "United States",
+}
 
-# hash = {bacon: 300,
-# 	name: 'Jesus castello',
-# 	bacon: 200,
-# 	"age" => 31,
-# }
+p country_codes["US"]
 
-# puts hash[:bacon]
-# puts hash[:name]
-# puts hash[:bacon]
-# p hash["age"]
+counthash = Hash.new(0)
+wordshash = 'Hello there hello'.split
 
-# p hash
-# p hash.keys
+p wordshash
 
-# country_codes = {
-# 	"ES" => "Spain",
-# 	"UK" => "United Kingdom",
-# 	"US" => "United States",
-# }
+wordshash.each { |word| counthash[word] += 1 }
 
-# p country_codes["US"]
-
-# counthash = Hash.new(0)
-# wordshash = 'Hello there hello'.split
-
-# p wordshash
-
-# wordshash.each { |word| counthash[word] += 1 }
-
-# p count
+p count
 
 p '--------------SuperKeyword--------------'
 
@@ -205,19 +205,61 @@ fw.destination("Google.com")
 	.protocol("Google.com")
 	.enable
 
-# class FirewallRule
-# 	def initialize(destination:, source:, protocol: "tcp")
+class FirewallRule
+	def initialize(destination:, source:, protocol: "tcp")
+	end
+end
+
+fw2 = FirewallRule.new(destination: "google.com")
+fw3 = FirewallRule.new.tap do |fw|
+	fw.destination = "google.com"
+	fw.source = "localhost"
+end
+
+Con este patron puedes definir el orden que quieras a la hora de
+declarar una clase
+
+p '--------------Minitest Tutorial--------------'
+
+require 'minitest/autorun'
+
+def add_two_numbers(a, b)
+	a + b
+end
+def put1(a)
+	a
+end
+
+class TestFoo < Minitest::Test
+	def test_randomletters
+		assert_equal 5, add_two_numbers(2, 3)
+	end
+	def test_randomletters2
+		assert_equal 1, put1(1)
+	end
+end
+
+p '--------------Count Method--------------'
+
+strings = %w(a bb ccc dddd)
+
+# count = 0
+
+# strings.each do |str|
+# 	if str.size > 2
+# 		count += 1
 # 	end
 # end
 
-# fw2 = FirewallRule.new(destination: "google.com")
-# fw3 = FirewallRule.new.tap do |fw|
-# 	fw.destination = "google.com"
-# 	fw.source = "localhost"
-# end
+p strings.count { |str| str.size > 2 }
+numbers = [1,2,3,4,5,6]
 
-# Con este patron puedes definir el orden que quieras a la hora de
-# declarar una clase
+p numbers.count { |num| num.even? }
+p numbers.count(&:odd?)
 
-p '--------------String interpolation--------------'
+p '--------------Select Method--------------'
 
+numbers = [1,2,3,4,5]
+selectedNumbers = numbers.select { |n| n.even?}
+
+p selectedNumbers
